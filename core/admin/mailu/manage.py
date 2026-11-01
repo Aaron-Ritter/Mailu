@@ -10,7 +10,7 @@ import click
 import yaml
 
 from flask import current_app as app
-from flask.cli import FlaskGroup, with_appcontext
+from flask.cli import AppGroup, with_appcontext
 
 from mailu import models
 from mailu.schemas import MailuSchema, Logger, RenderJSON
@@ -19,7 +19,7 @@ from mailu.schemas import MailuSchema, Logger, RenderJSON
 db = models.db
 
 
-@click.group(cls=FlaskGroup, context_settings={'help_option_names': ['-?', '-h', '--help']})
+@click.group(cls=AppGroup, context_settings={'help_option_names': ['-?', '-h', '--help']})
 def mailu():
     """ Mailu command line
     """
